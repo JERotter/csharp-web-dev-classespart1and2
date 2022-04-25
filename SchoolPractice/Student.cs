@@ -13,6 +13,7 @@ namespace SchoolPractice
         public int StudentId { get; set; }
         public int NumberOfCredits { get; set; }
         public double Gpa { get; set; }
+        public string levelOfSchool;
 
         public Student(string name, int studentId, int numberOfCredits, double gpa)
         {//this. only used with vars local to a method//
@@ -20,6 +21,28 @@ namespace SchoolPractice
             StudentId = studentId;
             NumberOfCredits = numberOfCredits;
             Gpa = gpa;
-        }  
+        }
+
+        public string GetGradeLevel()
+        {
+            if(NumberOfCredits > 0 && NumberOfCredits < 30)
+            {
+                levelOfSchool = "Freshman";
+            }
+            else if (NumberOfCredits > 29 && NumberOfCredits < 60)
+            {
+                levelOfSchool = "Sophomore";
+            }
+            else if (NumberOfCredits > 60  && NumberOfCredits < 90)
+            {
+                levelOfSchool = "Junior";
+            }
+            else if (NumberOfCredits > 90)
+            {
+                levelOfSchool = "Senior";
+            }
+            return levelOfSchool;
+            
+        }
     }
 }
